@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jmny&#39;s notes</title>
+    <link>https://example.com/index.xml</link>
+    <description>Recent content on Jmny&#39;s notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-fr</language>
+    <copyright>Louis PERRIER</copyright>
+    <lastBuildDate>Sat, 04 Feb 2017 15:39:13 +0100</lastBuildDate>
+    <atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Installation de hugo</title>
+      <link>https://example.com/2017/02/04/installation-de-hugo/</link>
+      <pubDate>Sat, 04 Feb 2017 15:39:13 +0100</pubDate>
+      
+      <guid>https://example.com/2017/02/04/installation-de-hugo/</guid>
+      <description>
+
+&lt;h1 id=&#34;installation-d-un-blog-avec-hugo-sur-github-pages&#34;&gt;Installation d&amp;rsquo;un blog avec Hugo sur github pages&lt;/h1&gt;
+
+&lt;h2 id=&#34;machine-de-travail&#34;&gt;Machine de travail&lt;/h2&gt;
+
+&lt;p&gt;Je suis sous ubuntu 16.04, mais cet exemple d&amp;rsquo;installation fonctionne sur Linux et Mac OS à minima.&lt;/p&gt;
+
+&lt;h2 id=&#34;installer-hugo&#34;&gt;Installer Hugo&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo apt install snapd
+snap install hugo
+hugo version
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;(Plus de details &lt;a href=&#34;https://gohugo.io/overview/installing&#34;&gt;ici&lt;/a&gt;.)&lt;/p&gt;
+
+&lt;h2 id=&#34;creer-son-blog&#34;&gt;Creer son blog&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;hugo new site monblog
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;(La documention est &lt;a href=&#34;https://gohugo.io/overview/quickstart/&#34;&gt;la&lt;/a&gt;.)&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
