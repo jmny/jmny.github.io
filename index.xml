@@ -11,22 +11,35 @@
     <atom:link href="https://jmny.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Installation de hugo</title>
+      <title>Comment creer votre blog avec Hugo</title>
       <link>https://jmny.github.io/2017/02/04/installation-de-hugo/</link>
       <pubDate>Sat, 04 Feb 2017 15:39:13 +0100</pubDate>
       
       <guid>https://jmny.github.io/2017/02/04/installation-de-hugo/</guid>
       <description>
 
-&lt;h1 id=&#34;installation-d-un-blog-avec-hugo-sur-github-pages&#34;&gt;Installation d&amp;rsquo;un blog avec Hugo sur github pages&lt;/h1&gt;
+&lt;h2 id=&#34;qu-est-ce-que-hugo&#34;&gt;Qu&amp;rsquo;est ce que Hugo&lt;/h2&gt;
+
+&lt;p&gt;C&amp;rsquo;est un générateur de site statique. dans la meme famille on retrouve &lt;a href=&#34;https://jekyllrb.com/&#34;&gt;Jekill&lt;/a&gt;.
+Les cas d&amp;rsquo;utilisations sont :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Une home de projet open source&lt;/li&gt;
+&lt;li&gt;Un blog&lt;/li&gt;
+&lt;li&gt;Une homepage de site public&lt;/li&gt;
+&lt;li&gt;Un portefolio&lt;/li&gt;
+&lt;li&gt;et tout ce que peut gérer un site html statique&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Le site du projet est &lt;a href=&#34;https://gohugo.io&#34;&gt;gohugo.io&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;machine-de-travail&#34;&gt;Machine de travail&lt;/h2&gt;
 
-&lt;p&gt;Je suis sous ubuntu 16.04, mais cet exemple d&amp;rsquo;installation fonctionne sur Linux et Mac OS à minima.&lt;/p&gt;
+&lt;p&gt;Je suis sous ubuntu 16.04, mais cet exemple d&amp;rsquo;installation fonctionne sur Linux en général et Mac OS X à priori, il faut juste installer snap avec la methode adhoc sour votre OS.&lt;/p&gt;
 
 &lt;h2 id=&#34;installer-hugo&#34;&gt;Installer Hugo&lt;/h2&gt;
 
-&lt;pre&gt;&lt;code&gt;sudo apt install snapd
+&lt;pre&gt;&lt;code&gt;sudo apt install snapd # lire la doc si ça ne fonctionne pas chez vous
 snap install hugo
 hugo version
 &lt;/code&gt;&lt;/pre&gt;
@@ -36,9 +49,63 @@ hugo version
 &lt;h2 id=&#34;creer-son-blog&#34;&gt;Creer son blog&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;hugo new site monblog
+
+# pour voir ce qui a été généré ( soyons curieux :) )
+cd monblog
+tree -a
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;(La documention est &lt;a href=&#34;https://gohugo.io/overview/quickstart/&#34;&gt;la&lt;/a&gt;.)&lt;/p&gt;
+&lt;p&gt;(La documention est &lt;a href=&#34;https://gohugo.io/overview/quickstart/&#34;&gt;là&lt;/a&gt;.)&lt;/p&gt;
+
+&lt;p&gt;Il faut un peu de config, donc ça se passe dans &amp;hellip; et oui dans config.toml ! Mettons y le minimum vital.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;echo &amp;quot;baseurl = \&amp;quot;https://example.com/\&amp;quot;
+title = \&amp;quot;Mon blog\&amp;quot; &amp;quot; &amp;gt; config.toml
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;ecrire-son-premier-article&#34;&gt;Ecrire son premier article&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;hugo new post/protocols-war.md
+echo &amp;quot;
++++
+date = \&amp;quot;2017-03-04T23:39:13+01:00\&amp;quot;
+title = \&amp;quot;Protocols war\&amp;quot;
+draft = true
++++
+
+on connait tous ça :) 
+
+ \![ ](https://imgs.xkcd.com/comics/standards.png)
+
+&amp;quot; &amp;gt; content/post/protocols-war.md
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Je vous invite à modifier le post, avec peut être un contenu plus personnel. Via le cartouche du header, vous pouvez également renseigner des information comme l&amp;rsquo;etat brouillon, le titre du post, ou les tags associés. Notez que &lt;em&gt;dans le header il faut remplir l&amp;rsquo;attribut title=&amp;ldquo;&amp;rdquo;&lt;/em&gt; sinon le titre sera vide.&lt;/p&gt;
+
+&lt;p&gt;(la documentation est &lt;a href=&#34;https://gohugo.io/overview/quickstart/#step-3-add-content&#34;&gt;par ici&lt;/a&gt;.)&lt;/p&gt;
+
+&lt;h2 id=&#34;choisir-un-theme-et-l-installer&#34;&gt;Choisir un theme et l&amp;rsquo;installer&lt;/h2&gt;
+
+&lt;p&gt;Avec hugo, pas de theme par defaut. Je vous laisse vous perdre dans &lt;a href=&#34;http://themes.gohugo.io/&#34;&gt;la gallerie de thème disponible&lt;/a&gt; et choisir le votre (ou le &lt;a href=&#34;https://gohugo.io/themes/creation/&#34;&gt;faire&lt;/a&gt;. On peux même en tester plusieurs, alors lachons nous.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone https://github.com/jbub/ghostwriter themes/ghostwriter
+git clone https://github.com/dim0627/hugo_theme_robust.git themes/robust
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Faisons nous plaisir et regardons le resultat. Option -D pour générer aussi les brouillons, par default &lt;strong&gt;hugo serve&lt;/strong&gt; surveille les modifications et regénérer automatiquement, plus d&amp;rsquo;info avec : hugo help serve. Options -t pour indiquer le theme, mais ça vous aviez devinez. Ici on test donc le theme &amp;ldquo;robust&amp;rdquo;. Vous trouverez sur la page du thème des infos utiles comme des customisations possibles à ajouté via le fichier config.toml.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;hugo serve -D -t robust
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ou&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;hugo serve -D -t ghostwriter
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;et-voila&#34;&gt;Et voila&lt;/h2&gt;
+
+&lt;p&gt;Vous pouvez maintenant visualiser votre blog, sur &lt;a href=&#34;http://localhost:1313/&#34;&gt;http://localhost:1313/&lt;/a&gt;. La prochaine fois on le publie sur gitpage.&lt;/p&gt;
 </description>
     </item>
     

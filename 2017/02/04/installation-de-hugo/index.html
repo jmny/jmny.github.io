@@ -3,19 +3,19 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Installation de hugo &middot; Louis PERRIER</title>
-        <meta name="description" content="Installation d&rsquo;un blog avec Hugo sur github pages Machine de travail Je suis sous ubuntu 16.04, mais cet exemple d&rsquo;installation fonctionne sur Linux et Mac OS à minima.
-Installer Hugo sudo apt install snapd snap install hugo hugo version  (Plus de details ici.)
-Creer son blog hugo new site monblog  (La documention est la.)">
+        <title>Comment creer votre blog avec Hugo &middot; Louis PERRIER</title>
+        <meta name="description" content="Qu&rsquo;est ce que Hugo C&rsquo;est un générateur de site statique. dans la meme famille on retrouve Jekill. Les cas d&rsquo;utilisations sont :
+ Une home de projet open source Un blog Une homepage de site public Un portefolio et tout ce que peut gérer un site html statique  Le site du projet est gohugo.io
+Machine de travail Je suis sous ubuntu 16.04, mais cet exemple d&rsquo;installation fonctionne sur Linux en général et Mac OS X à priori, il faut juste installer snap avec la methode adhoc sour votre OS.">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
-        <meta name="generator" content="Hugo 0.18.1" />
+        <meta name="generator" content="Hugo 0.19" />
         <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta property="og:title" content="Installation de hugo">
-<meta property="og:description" content="Installation d&rsquo;un blog avec Hugo sur github pages Machine de travail Je suis sous ubuntu 16.04, mais cet exemple d&rsquo;installation fonctionne sur Linux et Mac OS à minima.
-Installer Hugo sudo apt install snapd snap install hugo hugo version  (Plus de details ici.)
-Creer son blog hugo new site monblog  (La documention est la.)">
+        <meta property="og:title" content="Comment creer votre blog avec Hugo">
+<meta property="og:description" content="Qu&rsquo;est ce que Hugo C&rsquo;est un générateur de site statique. dans la meme famille on retrouve Jekill. Les cas d&rsquo;utilisations sont :
+ Une home de projet open source Un blog Une homepage de site public Un portefolio et tout ce que peut gérer un site html statique  Le site du projet est gohugo.io
+Machine de travail Je suis sous ubuntu 16.04, mais cet exemple d&rsquo;installation fonctionne sur Linux en général et Mac OS X à priori, il faut juste installer snap avec la methode adhoc sour votre OS.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jmny.github.io/2017/02/04/installation-de-hugo/">
         <link rel="stylesheet" href="https://jmny.github.io/dist/styles.css">
@@ -69,7 +69,7 @@ Creer son blog hugo new site monblog  (La documention est la.)">
 <div class="container">
     <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
         <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">Installation de hugo</h1>
+    <h1 class="post-title" itemprop="name headline">Comment creer votre blog avec Hugo</h1>
     
     <p class="post-date">
         <span>Published <time datetime="2017-02-04" itemprop="datePublished">Sat, Feb 4, 2017</time></span>
@@ -87,15 +87,28 @@ Creer son blog hugo new site monblog  (La documention est la.)">
 
     
 
-<h1 id="installation-d-un-blog-avec-hugo-sur-github-pages">Installation d&rsquo;un blog avec Hugo sur github pages</h1>
+<h2 id="qu-est-ce-que-hugo">Qu&rsquo;est ce que Hugo</h2>
+
+<p>C&rsquo;est un générateur de site statique. dans la meme famille on retrouve <a href="https://jekyllrb.com/">Jekill</a>.
+Les cas d&rsquo;utilisations sont :</p>
+
+<ul>
+<li>Une home de projet open source</li>
+<li>Un blog</li>
+<li>Une homepage de site public</li>
+<li>Un portefolio</li>
+<li>et tout ce que peut gérer un site html statique</li>
+</ul>
+
+<p>Le site du projet est <a href="https://gohugo.io">gohugo.io</a></p>
 
 <h2 id="machine-de-travail">Machine de travail</h2>
 
-<p>Je suis sous ubuntu 16.04, mais cet exemple d&rsquo;installation fonctionne sur Linux et Mac OS à minima.</p>
+<p>Je suis sous ubuntu 16.04, mais cet exemple d&rsquo;installation fonctionne sur Linux en général et Mac OS X à priori, il faut juste installer snap avec la methode adhoc sour votre OS.</p>
 
 <h2 id="installer-hugo">Installer Hugo</h2>
 
-<pre><code>sudo apt install snapd
+<pre><code>sudo apt install snapd # lire la doc si ça ne fonctionne pas chez vous
 snap install hugo
 hugo version
 </code></pre>
@@ -105,9 +118,63 @@ hugo version
 <h2 id="creer-son-blog">Creer son blog</h2>
 
 <pre><code>hugo new site monblog
+
+# pour voir ce qui a été généré ( soyons curieux :) )
+cd monblog
+tree -a
 </code></pre>
 
-<p>(La documention est <a href="https://gohugo.io/overview/quickstart/">la</a>.)</p>
+<p>(La documention est <a href="https://gohugo.io/overview/quickstart/">là</a>.)</p>
+
+<p>Il faut un peu de config, donc ça se passe dans &hellip; et oui dans config.toml ! Mettons y le minimum vital.</p>
+
+<pre><code>echo &quot;baseurl = \&quot;https://example.com/\&quot;
+title = \&quot;Mon blog\&quot; &quot; &gt; config.toml
+
+</code></pre>
+
+<h2 id="ecrire-son-premier-article">Ecrire son premier article</h2>
+
+<pre><code>hugo new post/protocols-war.md
+echo &quot;
++++
+date = \&quot;2017-03-04T23:39:13+01:00\&quot;
+title = \&quot;Protocols war\&quot;
+draft = true
++++
+
+on connait tous ça :) 
+
+ \![ ](https://imgs.xkcd.com/comics/standards.png)
+
+&quot; &gt; content/post/protocols-war.md
+</code></pre>
+
+<p>Je vous invite à modifier le post, avec peut être un contenu plus personnel. Via le cartouche du header, vous pouvez également renseigner des information comme l&rsquo;etat brouillon, le titre du post, ou les tags associés. Notez que <em>dans le header il faut remplir l&rsquo;attribut title=&ldquo;&rdquo;</em> sinon le titre sera vide.</p>
+
+<p>(la documentation est <a href="https://gohugo.io/overview/quickstart/#step-3-add-content">par ici</a>.)</p>
+
+<h2 id="choisir-un-theme-et-l-installer">Choisir un theme et l&rsquo;installer</h2>
+
+<p>Avec hugo, pas de theme par defaut. Je vous laisse vous perdre dans <a href="http://themes.gohugo.io/">la gallerie de thème disponible</a> et choisir le votre (ou le <a href="https://gohugo.io/themes/creation/">faire</a>. On peux même en tester plusieurs, alors lachons nous.</p>
+
+<pre><code>git clone https://github.com/jbub/ghostwriter themes/ghostwriter
+git clone https://github.com/dim0627/hugo_theme_robust.git themes/robust
+</code></pre>
+
+<p>Faisons nous plaisir et regardons le resultat. Option -D pour générer aussi les brouillons, par default <strong>hugo serve</strong> surveille les modifications et regénérer automatiquement, plus d&rsquo;info avec : hugo help serve. Options -t pour indiquer le theme, mais ça vous aviez devinez. Ici on test donc le theme &ldquo;robust&rdquo;. Vous trouverez sur la page du thème des infos utiles comme des customisations possibles à ajouté via le fichier config.toml.</p>
+
+<pre><code>hugo serve -D -t robust
+</code></pre>
+
+<p>ou</p>
+
+<pre><code>hugo serve -D -t ghostwriter
+</code></pre>
+
+<h2 id="et-voila">Et voila</h2>
+
+<p>Vous pouvez maintenant visualiser votre blog, sur <a href="http://localhost:1313/">http://localhost:1313/</a>. La prochaine fois on le publie sur gitpage.</p>
 
 </div>
 
@@ -116,7 +183,7 @@ hugo version
 
     <div class="share">
         
-            <a class="icon-twitter" href="https://twitter.com/share?text=Installation%20de%20hugo&url=https%3a%2f%2fjmny.github.io%2f2017%2f02%2f04%2finstallation-de-hugo%2f"
+            <a class="icon-twitter" href="https://twitter.com/share?text=Comment%20creer%20votre%20blog%20avec%20Hugo&url=https%3a%2f%2fjmny.github.io%2f2017%2f02%2f04%2finstallation-de-hugo%2f"
                 onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fa fa-twitter"></i>
                 <span class="hidden">Twitter</span>
@@ -137,6 +204,7 @@ hugo version
               <i class="fa fa-google-plus"></i>
                 <span class="hidden">Google+</span>
             </a>
+        
         
     </div>
 </footer>
